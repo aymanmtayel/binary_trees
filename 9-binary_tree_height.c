@@ -7,31 +7,13 @@
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t lefth = 0;
-	size_t righth = 0;
-
-	binary_tree_t *currl, *currr;
+	size_t lefth, righth;
 
 	if (!tree)
 		return (0);
 
-	currl = tree->left;
-	currr = tree->right;
+	lefth = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+	righth = tree->right ? 1 + binary_tree_height(tree->right) : 0;
 
-	while (currl || currr)
-	{
-		if (currl)
-		{
-			lefth++;
-			currl = currl->left;
-		}
-		if (currr)
-		{
-			righth++;
-			currr = currr->right;
-		}
-	}
-	if (lefth > righth)
-		return (lefth);
-	return (righth);
+	return (lefth > righth ? lefth : righth);
 }
