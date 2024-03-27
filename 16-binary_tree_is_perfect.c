@@ -18,6 +18,17 @@ int findh(const binary_tree_t *tree)
 	return (lefth > righth ? lefth : righth);
 }
 
+int nodec(const binary_tree_t *tree)
+{
+	int leftn, rightn;
+
+	if (tree == NULL)
+		return (0);
+	leftn = nodec(tree->left);
+	rightn = nodec(tree->right);
+
+	return (leftn + rightn + 1);
+}
 
 /**
  * binary_tree_is_perfect - checks if a binary tree is perfect
@@ -27,16 +38,14 @@ int findh(const binary_tree_t *tree)
 
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int nodesl, nodesr, nodes, h, check;
+	int nodes, h, check;
 
 	if (!tree)
 		return (0);
 
-	nodesl = binary_tree_is_perfect(tree->left);
-	nodesr = binary_tree_is_perfect(tree->right);
-	nodes = nodesl + nodesr + 1;
+	nodes = nodec(tree);
 	h = findh(tree);
-	check = (1 << (h - 1)) - 1;
+	check = (1 << (h + 1)) - 1;
 
 	return (check == nodes);
 }
