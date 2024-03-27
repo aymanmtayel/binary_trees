@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-#include <stdio.h>
 /**
  * binary_tree_h - function that measures the height
  * of a binary tree
@@ -19,10 +18,10 @@ int binary_tree_h(const binary_tree_t *tree)
 }
 
 /**
- * binary_tree_balance - function that measures the height
+ * binary_tree_balance - function that measures the balance
  * of a binary tree
- * @tree: pointer to the root node of the tree to measure the height
- * Return: the height of the tree or 0 if NULL tree
+ * @tree: pointer to the root node of the tree to measure the balance
+ * Return: the balance factor of the tree or 0 if NULL tree
  */
 
 int binary_tree_balance(const binary_tree_t *tree)
