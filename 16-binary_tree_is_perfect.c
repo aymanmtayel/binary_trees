@@ -18,6 +18,12 @@ int findh(const binary_tree_t *tree)
 	return (lefth > righth ? lefth : righth);
 }
 
+/**
+ * nodec - function to count the nodes in a tree
+ * @tree: the pointer to the tree
+ * Return: number of nodes or NULL if failed
+ */
+
 int nodec(const binary_tree_t *tree)
 {
 	int leftn, rightn;
